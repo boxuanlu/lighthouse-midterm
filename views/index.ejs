@@ -12,9 +12,12 @@
   </head>
 
   <body>
-    <% salad.forEach((row) => { %>
-      <%= row %>
-    <% }) %>
-    <h1>Hello World!</h1>
+    <%- include header.ejs %>
+    <%- include main.ejs %>
+    <%- include side.ejs %>
+    <%- include footer.ejs %>
   </body>
 </html>
+<% salad.forEach((row) => { %>
+      <%= row %>
+    <% }) %>
