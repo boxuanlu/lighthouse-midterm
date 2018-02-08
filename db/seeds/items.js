@@ -1,9 +1,12 @@
+// foreign key lacks true population, is hardcoded
+
 exports.seed = function(knex, Promise) {
   return knex('items').del()
     .then(function() {
       return Promise.all([
         knex('items').insert({
          menu_section: 'salads',
+         restaurants_id: 1,
          name: 'Buffalo Bleu',
          price: 7.99,
          description: 'Chopped romaine & iceberg blend, all-natural chicken, original buffalo new york spicy sauce, grape tomatoes, banana peppers, tortilla strips, bleu cheese, suggested dressing: chunky bleu cheese',
@@ -11,6 +14,7 @@ exports.seed = function(knex, Promise) {
          likes: 11 }),
         knex('items').insert({
          menu_section: 'salads',
+         restaurants_id: 1,
          name: 'Bently',
          price: 7.99,
          description: 'Chopped romaine & iceberg blend, baked ham, roasted turkey, chopped eggs, tomatoes, provolone cheese, suggested dressing: green goddess.',
@@ -18,6 +22,7 @@ exports.seed = function(knex, Promise) {
          likes: 10 }),
         knex('items').insert({
          menu_section: 'salads',
+         restaurants_id: 1,
          name: 'Chicken Caesar',
          price: 7.99,
          description: 'Chopped romaine & iceberg blend, all-natural chicken, chopped eggs, croutons, parmesan cheese, suggested dressing: parmesan Caesar',
@@ -25,6 +30,7 @@ exports.seed = function(knex, Promise) {
          likes: 2}),
         knex('items').insert({
          menu_section: 'salads',
+         restaurants_id: 1,
          name: 'Cobb',
          price: 6.99,
          description: 'Chopped romaine & iceberg blend, breaded chicken, crispy bacon, tomatoes, avocado, chopped eggs, bleu cheese, suggested dressing: rustic thousand island',
@@ -32,6 +38,7 @@ exports.seed = function(knex, Promise) {
          likes: 2 }),
         knex('items').insert({
          menu_section: 'salads',
+         restaurants_id: 1,
          name: 'Fore Roasted Cabo',
          price: 9.99,
          description: 'Chopped romaine & iceberg blend, all-natural chicken, corn bean blend, roasted red peppers, tomatoes, tortilla strips, spicy monterey jack, suggested dressing: tangy salsa ranch',
@@ -42,6 +49,7 @@ exports.seed = function(knex, Promise) {
 
         knex('items').insert({
          menu_section: 'Wraps',
+         restaurants_id: 1,
          name: 'Mandarin Chicken Warp',
          price: 11.99,
          description: 'Spring mix, all-natural chicken, mandarin oranges, cucumbers, carrots, dried cranberries, chow mein noodles, suggested dressing: oriental sesame',
@@ -49,6 +57,7 @@ exports.seed = function(knex, Promise) {
          likes: 6 }),
         knex('items').insert({
          menu_section: 'Wraps',
+         restaurants_id: 1,
          name: 'Nicoise Wrap',
          price: 11.99,
          description: 'Chopped romaine & iceberg blend, radiatorre pasta, tuna, tomatoes, chopped eggs, black olives, suggested dressing: balsamic vinaigrette',
@@ -56,6 +65,7 @@ exports.seed = function(knex, Promise) {
          likes: 11 }),
         knex('items').insert({
          menu_section: 'Wraps',
+         restaurants_id: 1,
          name: "Sophie's Salad Wrap",
          price: 13.99,
          description: 'Spring mix, all-natural chicken, green apples, dried cranberries, glazed pecans, bleu cheese, suggested dressing: lite raspberry vinaigrette',
@@ -63,6 +73,7 @@ exports.seed = function(knex, Promise) {
          likes: 9 }),
         knex('items').insert({
          menu_section: 'Wraps',
+         restaurants_id: 1,
          name: "Greek Wrap",
          price: 13.99,
          description: 'Chopped romaine & iceberg blend, cucumbers, grape tomatoes, red onions, banana peppers, black olives, feta cheese, suggested dressing: balsamic vinaigrette',
@@ -72,6 +83,7 @@ exports.seed = function(knex, Promise) {
 
         knex('items').insert({
          menu_section: 'Soups',
+         restaurants_id: 1,
          name: "Broccoli Cheddar",
          price: 5.99,
          description: 'Generous pieces of broccoli, creamy sharp cheddar cheese and a touch of spices',
@@ -79,6 +91,7 @@ exports.seed = function(knex, Promise) {
          likes: 2 }),
         knex('items').insert({
          menu_section: 'Soups',
+         restaurants_id: 1,
          name: "Organic Harvest Bisque",
          price: 7.99,
          description: 'Butternut squash and carrots pureed with ginger, nutmeg, cinnamon, apples, sweet potatoes, and a hint of rosemary',
@@ -86,6 +99,7 @@ exports.seed = function(knex, Promise) {
          likes: 4 }),
         knex('items').insert({
          menu_section: 'Soups',
+         restaurants_id: 1,
          name: "Spring Veg",
          price: 4.99,
          description: 'A delicious medley of vegetables simmered to perfection in an herbed vegetable stock',
