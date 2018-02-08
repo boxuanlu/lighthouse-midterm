@@ -4,9 +4,7 @@ return Promise.all([
     knex.schema.createTable('items', function(table) {
       table.increments();
       table.integer('restaurants_id').references('id').inTable('restaurants');
-      table.string('name');
-      table.decimal('price', 14, 2);
-      table.string('description');
+      table.string('name').notNullable();
       table.string('pictures');
       table.integer('likes');
 
