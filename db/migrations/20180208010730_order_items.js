@@ -1,7 +1,4 @@
 
-
-
-
 // make order items link table
 exports.up = function(knex, Promise) {
   return Promise.all([
