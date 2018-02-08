@@ -76,7 +76,7 @@ exports.seed = function(knex, Promise) {
          price: 5.99,
          description: 'Generous pieces of broccoli, creamy sharp cheddar cheese and a touch of spices',
          pictures: '/pictures/BroccoliCheeseHDR.jpg',
-         likes: 2s }),
+         likes: 2 }),
         knex('items').insert({
          menu_section: 'Soups',
          name: "Organic Harvest Bisque",
