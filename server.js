@@ -40,18 +40,24 @@ app.use("/api/users", usersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
-  let templateVars;
   knex.select('*').from('items').then(function(rows) {
     let templateVars = {};
     rows.forEach((row) => {
-      if (Object.keys(templateVars).includes(row['menu_section'])) {
-        templateVars[row].push(row);
+      console.log(Object.keys(templateVars))
+      if (!Object.keys(templateVars).includes(row['menu_section'])) {
+        templateVars[row['menu_section']] = [];
+        templateVars[row['menu_section']].push(row);
       } else {
-        templateVars[row] = [];
-        templateVars[row].push(row);
+        templateVars[row['menu_section']].push(row);
       }
     })
-    console.log(templateVars)
+
+    /* templateVars = {
+    *  salads: Array of salad objects
+    *  Wraps: Array of Wraps objects
+    *  Soups: Array of Soups objects
+    * }
+    */
     res.render("index", templateVars);
   })
 });

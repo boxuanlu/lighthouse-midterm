@@ -14,8 +14,12 @@
   <body>
 
     <%- include('partials/header.ejs') %>
+
     <a href='/'><img src='/pictures/snacks-780x405.jpg'></a>
     <!-- <%- // include("partials/main.ejs") %> -->
+
+    <%- include("partials/main.ejs", {salads: salads}) %>
+
     <%-// include("partials/side.ejs") %>
     <%- include("partials/footer.ejs") %>
 
