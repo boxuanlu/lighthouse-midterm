@@ -40,10 +40,19 @@ app.use("/api/users", usersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
-  knex.select('*').from('items').where('menu_section', 'salads').then(function (rows) {
-   console.log(rows)
-   let templateVars = {salad: rows}
-  res.render("index", templateVars);
+  let templateVars;
+  knex.select('*').from('items').then(function(rows) {
+    let templateVars = {};
+    rows.forEach((row) => {
+      if (Object.keys(templateVars).includes(row['menu_section'])) {
+        templateVars[row].push(row);
+      } else {
+        templateVars[row] = [];
+        templateVars[row].push(row);
+      }
+    })
+    console.log(templateVars)
+    res.render("index", templateVars);
   })
 });
 
