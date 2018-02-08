@@ -2,6 +2,11 @@
 
 exports.seed = function(knex, Promise) {
   return knex('items').del()
+    .then(() => {
+      knex('restaurants').del();
+      knex('users').del();
+      return;
+    })
     .then(function() {
       return Promise.all([
         knex('items').insert({
@@ -78,7 +83,7 @@ exports.seed = function(knex, Promise) {
          price: 13.99,
          description: 'Chopped romaine & iceberg blend, cucumbers, grape tomatoes, red onions, banana peppers, black olives, feta cheese, suggested dressing: balsamic vinaigrette',
          pictures: '/pictures/Greek-Wrap.jpg',
-         likes: 4 }),
+         likes:  4 }),
 
 
         knex('items').insert({
