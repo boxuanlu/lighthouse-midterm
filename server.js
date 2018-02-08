@@ -40,8 +40,16 @@ app.use("/api/users", usersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
-  res.render("index");
+  knex.select('*').from('items').where('menu_section', 'salads').then(function (rows) {
+   console.log(rows)
+   let templateVars = {salad: rows}
+  res.render("index", templateVars);
+  })
 });
+
+
+
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
