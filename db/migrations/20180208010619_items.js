@@ -6,7 +6,7 @@ return Promise.all([
       table.integer('restaurants_id').references('id').inTable('restaurants');
       table.string('name').notNullable();
       table.decimal('price');
-      table.string('description', 14, 2);
+      table.string('description')
       table.string('pictures');
       table.integer('likes');
 
