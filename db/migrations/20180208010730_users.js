@@ -5,8 +5,8 @@ exports.up = function(knex, Promise) {
       table.increments();
       table.string('username');
       table.string('password');
-      table.string('email');
-      table.unique(['email']);
+      table.string('email').unique();
+  /*    table.unique(['email']);*/
       table.string('address');
 
       table.timestamps();

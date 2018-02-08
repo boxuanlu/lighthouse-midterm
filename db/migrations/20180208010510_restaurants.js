@@ -2,7 +2,8 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('restaurants', function (table) {
     table.increments();
-    table.unique('username');
+    table.string('username')
+    table.unique(['username']);
     table.string('password');
     table.string('email');
   });

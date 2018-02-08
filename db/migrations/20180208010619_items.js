@@ -1,13 +1,12 @@
 //makes items table
 exports.up = function(knex, Promise) {
 return Promise.all([
-    knex.schema.table('items', function(table) {
-      table.increment();
-      table.integer('restaurant_id').unsigned();
-      table.foreign('restaurant_id').references('restaurant_id');
+    knex.schema.createTable('items', function(table) {
+      table.increments();
+      table.integer('restaurants_id').references('id').inTable('restaurants');
       table.string('name');
-      table.numeric('price');
-      table.string('description');
+      table.decimal('price');
+      table.string('description', 14, 2);
       table.string('pictures');
       table.integer('likes');
 
