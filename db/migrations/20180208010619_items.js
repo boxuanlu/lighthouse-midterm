@@ -5,6 +5,8 @@ return Promise.all([
       table.increments();
       table.integer('restaurants_id').references('id').inTable('restaurants');
       table.string('name').notNullable();
+      table.decimal('price');
+      table.string('description')
       table.string('pictures');
       table.integer('likes');
 
