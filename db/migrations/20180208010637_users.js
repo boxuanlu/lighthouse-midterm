@@ -8,7 +8,6 @@ exports.up = function(knex, Promise) {
       table.string('email').unique();
   /*    table.unique(['email']);*/
       table.string('address');
-
       table.timestamps();
     })
   ]);
