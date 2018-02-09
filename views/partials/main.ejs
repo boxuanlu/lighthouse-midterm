@@ -1,26 +1,32 @@
 <section class='menu col'>
-<% salads.forEach((row) => { %>
-      <%= row['name'] %>
-      <%= row['price']%>
-      <%= row['description']%>
-      <img src='<%=row['pictures'] %>'>
-      <%= row['likes']%>
-      <button>Add</button>
-    <% }) %>
-<% Wraps.forEach((row) => { %>
-      <%= row['name'] %>
-      <%= row['price']%>
-      <%= row['description']%>
-      <img src='<%=row['pictures'] %>'>
-      <%= row['likes']%>
-      <button>Add</button>
-      <% }) %>
-<% Soups.forEach((row) => { %>
-      <%= row['name'] %>
-      <%= row['price']%>
-      <%= row['description']%>
-      <img src='<%=row['pictures'] %>'>
-      <%= row['likes']%>
-      <button>Add</button>
-      <% }) %>
+  <section class = "row">
+    <% salads.forEach((row) => { %>
+          <%= row['name'] %>
+          <%= row['price']%>
+          <%= row['description']%>
+          <img src='<%=row['pictures'] %>'>
+          <%= row['likes']%>
+          <button>Add</button><br>
+        <% }) %>
+  </section>
+  <section class = "row">
+    <% Wraps.forEach((row) => { %>
+          <%= row['name'] %>
+          <%= row['price']%>
+          <%= row['description']%>
+          <img src='<%=row['pictures'] %>'>
+          <%= row['likes']%>
+          <button>Add</button><br>
+          <% }) %>
+  </section>
+  <section class = "row">
+    <% Soups.forEach((row) => { %>
+          <%= row['name'] %>
+          <%= row['price']%>
+          <%= row['description']%>
+          <img src='<%=row['pictures'] %>'>
+          <%= row['likes']%>
+          <button>Add</button><br>
+          <% }) %>
+  </section>
 </section>
