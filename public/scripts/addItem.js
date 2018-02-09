@@ -34,7 +34,5 @@ $(document).ready(function() {
     $(row).append(itemPrice);
     $(row).append(cancel)
     $('.order-list').append(row);
-
-    $();
   });
 });
