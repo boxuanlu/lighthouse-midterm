@@ -1,10 +1,10 @@
-<section class='menu col'>
+<section class='menu col-12 col-md-8'>
   <section class = "row">
     <% salads.forEach((row) => { %>
           <%= row['name'] %>
           <%= row['price']%>
           <%= row['description']%>
-          <img class = "food-image" src='<%=row['pictures'] %>'>
+          <img class = "food-image img-fluid" src='<%=row['pictures'] %>'>
           <%= row['likes']%>
           <button>Add</button><br>
         <% }) %>
@@ -14,7 +14,7 @@
           <%= row['name'] %>
           <%= row['price']%>
           <%= row['description']%>
-          <img class = "food-image" src='<%=row['pictures'] %>'>
+          <img class = "food-image img-fluid" src='<%=row['pictures'] %>'>
           <%= row['likes']%>
           <button>Add</button><br>
           <% }) %>
@@ -24,7 +24,7 @@
           <%= row['name'] %>
           <%= row['price']%>
           <%= row['description']%>
-          <img class = "food-image" src='<%=row['pictures'] %>'>
+          <img class = "food-image img-fluid" src='<%=row['pictures'] %>'>
           <%= row['likes']%>
           <button>Add</button><br>
           <% }) %>
