@@ -10,7 +10,7 @@ $(document).ready(function() {
     const row = $('<tr/>', {
       'class': 'order-item'
     });
-    console.log(row)
+    console.log(row);
     const itemName = $('<td/>', {
       'class': 'order-name'
     });
