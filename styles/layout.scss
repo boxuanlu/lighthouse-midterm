@@ -7,5 +7,27 @@ body {
 }
 
 .image-carosel {
-  background-image: url('/pictures/snacks-780x405.jpg');
+  background: url('/pictures/snacks-780x405.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 500px;
+  padding-top: 120px;
+
+}
+
+#nav-bar {
+  position: fixed;
+  height: 120px;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: #80ced6;
+  color: #e8fdff;
+  padding-left: 2em;
+  padding-right: 2em;
+  z-index: 1;
+}
+#nav-bar .logo{
+  width: 120px;
+  height: 120px;
+   float:left;
 }

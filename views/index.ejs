@@ -18,14 +18,15 @@
   <body>
 
     <%- include('partials/header.ejs') %>
-    <section class='image-carosel'>
-      <h1 class='slogan'>Delicious, Fast and Healthy food ToGo</h1>
+    <section class='image-carosel col'>
+      <h1 class='slogan row align-items-end'>Delicious, Fast and Healthy food ToGo</h1>
     </section>
     <!-- <%- // include("partials/main.ejs") %> -->
-
+    <section class='select-items row'>
     <%- include("partials/main.ejs", {salads: salads, Wraps: Wraps, Soups: Soups}) %>
 
     <%- include("partials/aside.ejs", {salads: salads, Wraps: Wraps, Soups: Soups}) %>
+    </section>
 
     <%- include("partials/footer.ejs") %>
 
