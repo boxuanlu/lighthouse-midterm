@@ -24,15 +24,15 @@ $(document).ready(function() {
     const cancel = $('<button/>', {
       'class': 'cancel-item'
     });
-    $(cancel).append(document.createTextNode('Remove'))
+    $(cancel).append(document.createTextNode('Remove'));
     //event handler for removing the added item
     $(cancel).on('click', function() {
-      $(this).closest('.order-item').remove()
+      $(this).closest('.order-item').remove();
     });
 
     $(itemPrice).append(document.createTextNode(price));
     $(row).append(itemPrice);
-    $(row).append(cancel)
+    $(row).append(cancel);
     $('.order-list').append(row);
   });
 });
