@@ -19,7 +19,7 @@ $(document).ready(function() {
     const itemPrice = $('<td/>', {
       'class': 'order-price'
     });
-    $(itemPrice).append(document.createTextNode(price));
+    $(itemPrice).append(document.createTextNode('$' + price));
     $(row).append(itemPrice);
     $('.order-list').append(row);
 
