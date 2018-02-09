@@ -19,8 +19,16 @@ $(document).ready(function() {
     const itemPrice = $('<td/>', {
       'class': 'order-price'
     });
+
+    //button for removing item from table
+    const cancel = $('<button/>', {
+      'class': 'cancel-item'
+    });
+    $(cancel).append(document.createTextNode('Remove'))
+
     $(itemPrice).append(document.createTextNode('$' + price));
     $(row).append(itemPrice);
+    $(row).append(cancel)
     $('.order-list').append(row);
 
     $();
