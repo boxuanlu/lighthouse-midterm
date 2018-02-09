@@ -7,7 +7,10 @@ body {
 }
 
 .image-carosel {
-  background-image: url('/pictures/snacks-780x405.jpg');
+  background: url('/pictures/snacks-780x405.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 300px;
+
 }
 
 #nav-bar {
