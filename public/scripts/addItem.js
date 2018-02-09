@@ -4,8 +4,10 @@ $(document).ready(function() {
 
     // price of parent .price and name of parent .name
     const price = $(this).siblings('.price').text();
+    $('.order-total').text(addToTotal(price));
+    $('.order-taxes').text(addToTax(price));
+    $('.order-subtotal').text(addToSubtotal(price))
     const name = $(this).siblings('.name').text();
-    console.log(name);
 
     const row = $('<tr/>', {
       'class': 'order-item'

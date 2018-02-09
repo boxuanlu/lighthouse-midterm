@@ -6,7 +6,7 @@ function ccFormInputs() {
   const cc = $("<label for='cc'>CC</label><input type='text' id='cc'>");
   const name = $("<label for='cc-name'>name</label><input type='text' id='cc-name'>");
   const expiry = $("<label for='cc-expiry'>Expiry</label><input id='cc-expiry' name='expiry' type='month'>");
-  const ccv = $("<label for='cc-ccv'>CCV</label><input id='cc-ccv'  type='text' maxlength='3'>")
+  const ccv = $("<label for='cc-ccv'>CCV</label><input id='cc-ccv'  type='text' maxlength='3'>");
 
   holder.append(cc);
   holder.append(name);
@@ -41,5 +41,5 @@ $(document).ready(function() {
     if (!$('.cc-holder').length) {
       $(this).closest('aside').append(checkoutDiv());
     }
-  })
+  });
 });
