@@ -58,7 +58,7 @@ exports.seed = function(knex, Promise) {
          name: 'Mandarin Chicken Warp',
          price: 11.99,
          description: 'Spring mix, all-natural chicken, mandarin oranges, cucumbers, carrots, dried cranberries, chow mein noodles, suggested dressing: oriental sesame',
-         pictures: '/pictures/Mandarin-Chicken-Warp.jpg',
+         pictures: '/pictures/Mandarin-Chicken-Wrap.jpg',
          likes: 6 }),
         knex('items').insert({
          menu_section: 'Wraps',
@@ -66,7 +66,7 @@ exports.seed = function(knex, Promise) {
          name: 'Nicoise Wrap',
          price: 11.99,
          description: 'Chopped romaine & iceberg blend, radiatorre pasta, tuna, tomatoes, chopped eggs, black olives, suggested dressing: balsamic vinaigrette',
-         pictures: '/pictures/Nuevo-Nicoise-wrap.jpg',
+         pictures: '/pictures/Nuevo-Nicoise-Wrap.jpg',
          likes: 11 }),
         knex('items').insert({
          menu_section: 'Wraps',
@@ -74,7 +74,7 @@ exports.seed = function(knex, Promise) {
          name: "Sophie's Salad Wrap",
          price: 13.99,
          description: 'Spring mix, all-natural chicken, green apples, dried cranberries, glazed pecans, bleu cheese, suggested dressing: lite raspberry vinaigrette',
-         pictures: '/pictures/Sophie_s-wrap.jpg',
+         pictures: '/pictures/Sophie_s-Wrap.jpg',
          likes: 9 }),
         knex('items').insert({
          menu_section: 'Wraps',

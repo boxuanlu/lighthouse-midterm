@@ -2,10 +2,21 @@
 <% salads.forEach((row) => { %>
       <%= row['name'] %>
       <%= row['price']%>
+      <%= row['description']%>
+      <img src='<%=row['pictures'] %>'>
+      <%= row['likes']%>
     <% }) %>
 <% Wraps.forEach((row) => { %>
-      <%= row %>
+      <%= row['name'] %>
+      <%= row['price']%>
+      <%= row['description']%>
+      <img src='<%=row['pictures'] %>'>
+      <%= row['likes']%>
       <% }) %>
 <% Soups.forEach((row) => { %>
-      <%= row %>
+      <%= row['name'] %>
+      <%= row['price']%>
+      <%= row['description']%>
+      <img src='<%=row['pictures'] %>'>
+      <%= row['likes']%>
       <% }) %>
