@@ -1,3 +1,5 @@
+
+const bcrypt = require('bcrypt');
 exports.seed = function(knex, Promise) {
       return Promise.all([
         knex('users').insert({

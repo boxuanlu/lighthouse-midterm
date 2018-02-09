@@ -1,6 +1,7 @@
 "use strict";
 
 const express = require('express');
+const bcrypt = require('bcrypt');
 const router  = express.Router();
 
 module.exports = (knex) => {
@@ -12,9 +13,10 @@ module.exports = (knex) => {
       .then((results) => {
         res.json(results);
     });
-  });
+
+    });
 
   return router;
-}
+};
 
 
