@@ -6,6 +6,8 @@ const PORT        = process.env.PORT || 8080;
 const ENV         = process.env.ENV || "development";
 const express     = require("express");
 const bodyParser  = require("body-parser");
+const flash = require('connect-flash');
+const cookieSession = require('cookie-session');
 const sass        = require("node-sass-middleware");
 const app         = express();
 
@@ -61,6 +63,55 @@ app.get("/", (req, res) => {
     res.render("index", templateVars);
   })
 });
+
+app.post("/userlogin",(req,res)=>{
+  let userEmail = req.body.email;
+  let userPassword = req.body.password;
+  console.log(userEmail);
+  console.log(userPassword);
+  knex.select('username', 'password', 'email')
+  .from('users')
+  .where ({'email':userEmail ,'password':userPassword})
+  .then(function(userData){
+    userData.forEach((user)=>{
+      console.log('Logged in');
+    });
+  });
+});
+
+
+// ------------- Restaurant Login GET / POST
+
+app.get("/restaurantLogin",(req,res)=>{
+  res.render('restaurantLogin');
+});
+
+
+
+app.post("/restaurantlogin",(req,res)=>{
+  let restaurantEmail = req.body.email;
+  let restaurantPassword = req.body.password;
+  console.log(userPassword);
+  knex.select('username', 'password', 'email')
+  .from('restaurants')
+  .where ({'email':restaurantEmail ,'password':restaurantPassword})
+  .then(function(userData){
+    userData.forEach((user)=>{
+      console.log('Logged in');
+    });
+  });
+});
+
+
+// ----------------Checkout -----------------//
+
+// app.get("/checkout",(res,req)=>{
+
+//   res.render('checkout');
+// })
+
+//-----------------------------------------//
+
 
 
 
