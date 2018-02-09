@@ -14,32 +14,48 @@
           <span class='price'>$<%=row['price']%></span>
           <span class="fa fa-fire"><%= row['likes']%></span>
           <p class='description'><%= row['description']%></p>
-          <button class='add-item'>Add</button class='add-item'><br>
+          <button class='add-item'>Order</button class='add-item'><br>
+
+
           </div>
          </div>
         <% }) %>
   </section>
+  <div class= 'menu-section'>
+      <h4 class= 'title'>WRAPS</h4>
+  </div>
   <section class = "item-container">
     <% Wraps.forEach((row) => { %>
            <div class='item'>
-          <span class='name'><%= row['name'] %></span>
-          <span class='price'><%= row['price']%></span>
-          <span class='likes'><%= row['likes']%></span>
+            <div class ='imagewrapper'>
+            <img class = "food-image" src='<%=row['pictures'] %>'>
+          </div>
+          <div class ='detailwrapper'>
+            <span class='name'><%=row['name'] %></span>
+          <span class='price'>$<%=row['price']%></span>
+          <span class="fa fa-fire"><%= row['likes']%></span>
           <p class='description'><%= row['description']%></p>
-          <img class = "food-image" src='<%=row['pictures'] %>'>
-          <button class='add-item'>Add</button class='add-item'><br>
+          <button class='add-item'>Order</button class='add-item'><br>
+          </div>
           </div>
           <% }) %>
   </section>
+    <div class= 'menu-section'>
+      <h4 class= 'title'>SOUPS</h4>
+  </div>
   <section class = "item-container">
     <% Soups.forEach((row) => { %>
            <div class='item'>
-          <span class='name'><%= row['name'] %></span>
-          <span class='price'><%= row['price']%></span>
-          <span class='likes'><%= row['likes']%></span>
+            <div class ='imagewrapper'>
+            <img class = "food-image" src='<%=row['pictures'] %>'>
+          </div>
+          <div class ='detailwrapper'>
+            <span class='name'><%=row['name'] %></span>
+          <span class='price'>$<%=row['price']%></span>
+          <span class="fa fa-fire"><%= row['likes']%></span>
           <p class='description'><%= row['description']%></p>
-          <img class = "food-image" src='<%=row['pictures'] %>'>
-          <button class='add-item'>Add</button class='add-item'><br>
+          <button class='add-item'>Order</button class='add-item'><br>
+          </div>
           </div>
           <% }) %>
   </section>

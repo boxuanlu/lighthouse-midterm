@@ -1,24 +1,32 @@
 <aside class='col checkout'>
+  <form method='POST' action='/submit-order' id='submit-order'>
 <section>
+  <ul class="list-group">
+  <li class="list-group-item">Cras justo odio</li>
+  <li class="list-group-item">Dapibus ac facilisis in</li>
+  <li class="list-group-item">Morbi leo risus</li>
+  <li class="list-group-item">Porta ac consectetur ac</li>
+  <li class="list-group-item">Vestibulum at eros</li>
+</ul>
   <div>
    <table>
     <tr>
       <th>Food & Beverage Subtotal</th>
-      <td>$19.50</td>
+      <td class='order-subtotal'>$0.00</td>
     </tr>
     <tr>
       <th>Taxes</th>
-      <td>$5.5</td>
+      <td class='order-taxes'>$0.00</td>
     </tr>
     <tr>
       <th>Total</th>
-      <td>$25.00</td>
+      <td class='order-total'>$0.00</td>
     </tr>
    </table>
   </div>
 </section>
 <section>
-<button class='checkout-button'>Checkout</button>
+<button type='button' class='checkout-button'>Checkout</button>
   <div>
     <table class='order-list'>
       <tr>
@@ -29,7 +37,8 @@
 
       </tr>
     </table>
-  </div>
+</div>
 </section>
+</form>
 </aside>
 
