@@ -1,19 +1,12 @@
-
-
-
-
-// checkout on click
-// div for checkout
-// information for checkout
-// placeholder inputs for checkout
-// form button for issuing order
-
+// instantiates cc inputs
 function ccFormInputs() {
-  const holder = $('<p/>');
+  const holder = $('<p/>', {
+    'class': 'cc-holder'
+  });
   const cc = $("<label for='cc'>CC</label><input type='text' id='cc'>");
   const name = $("<label for='cc-name'>name</label><input type='text' id='cc-name'>");
   const expiry = $("<label for='cc-expiry'>Expiry</label><input id='cc-expiry' name='expiry' type='month'>");
-  const ccv = $("<label for='cc-ccv'>CCV</label><input id='cc-ccv'  type='text' maxlength='3'>")
+  const ccv = $("<label for='cc-ccv'>CCV</label><input id='cc-ccv'  type='text' maxlength='3'>");
 
   holder.append(cc);
   holder.append(name);
@@ -22,17 +15,31 @@ function ccFormInputs() {
   return holder;
 }
 
+function confirmButton() {
+  const confirm = $('<button/>', {
+    'type': 'submit',
+    'class': 'confirm-order',
+    'form': 'submit-order'
+  });
+  $(confirm).append(document.createTextNode('Submit Order'));
+  return confirm;
+}
 
+// instantiates checkout div
 function checkoutDiv() {
   const checkout = $('<div/>', {
     'class': 'checkout-div'
   });
   checkout.append(ccFormInputs());
+  checkout.append(confirmButton());
   return checkout;
 }
 
 $(document).ready(function() {
   $('.checkout-button').on('click', function(event) {
-    $(this).closest('aside').append(checkoutDiv())
-  })
+    //if cc holder already exists dont do
+    if (!$('.cc-holder').length) {
+      $(this).closest('aside').append(checkoutDiv());
+    }
+  });
 });
