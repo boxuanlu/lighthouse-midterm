@@ -25,8 +25,12 @@ $(document).ready(function() {
       'class': 'cancel-item'
     });
     $(cancel).append(document.createTextNode('Remove'))
+    //event handler for removing the added item
+    $(cancel).on('click', function() {
+      $(this).closest('.order-item').remove()
+    });
 
-    $(itemPrice).append(document.createTextNode('$' + price));
+    $(itemPrice).append(document.createTextNode(price));
     $(row).append(itemPrice);
     $(row).append(cancel)
     $('.order-list').append(row);
@@ -34,10 +38,3 @@ $(document).ready(function() {
     $();
   });
 });
-
-
-/*     <tr>
-        <th>Order Item Name</th>
-        <td>Quantity</td>
-        <td>Item price</td>
-      </tr>*/
