@@ -37,3 +37,54 @@ body h1 {
   height: 200px;
   width: 200px;
 }
+.imagewrapper {
+  order : 2;
+
+}
+.detailwrapper {
+  order: 3;
+}
+.item {
+  display: flex;
+  border-bottom: 1px solid #B0B0B0;
+  width: 100%;
+  height: auto;
+  margin: 5px 10px 5px 10px;
+  &:hover{
+    box-shadow: 0 0 2px 2px #B0B0B0, 0 -5px 5px -20px #fff;
+
+
+  }
+}
+ .title::before,  .title::after {
+
+  content: "";
+  display: block;
+  width: 33px;
+  height: 3px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+  background-image: linear-gradient(to right, transparent 0%, transparent 36.36%, #d70f6436 0.36%, #d70f64 63.63%, transparent 63.63%, transparent 100%);
+  background-size: 11px 3px;
+  background-repeat: repeat-x;
+
+}
+.title::after {
+  right: 0;
+  left: auto;
+}
+.menu-section {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  h4{
+    font-family: Arial,sans-serif;
+    display: inline-block;
+    padding: 0 45px;
+    position: relative;
+  }
+}
+
