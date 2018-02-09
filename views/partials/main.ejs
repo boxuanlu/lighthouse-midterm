@@ -2,7 +2,7 @@
   <section class = "row">
     <% salads.forEach((row) => { %>
           <%= row['name'] %>
-          <a> price $ <%= row['price']%> </a>
+          <%= row['price']%>
           <%= row['description']%>
           <img class = "food-image" src='<%=row['pictures'] %>'>
           <%= row['likes']%>
@@ -12,7 +12,7 @@
   <section class = "row">
     <% Wraps.forEach((row) => { %>
           <%= row['name'] %>
-         <a> price $ <%= row['price']%> </a>
+          <%= row['price']%>
           <%= row['description']%>
           <img class = "food-image src='<%=row['pictures'] %>'>
           <%= row['likes']%>
@@ -22,7 +22,7 @@
   <section class = "row">
     <% Soups.forEach((row) => { %>
           <%= row['name'] %>
-          <a> price $ <%= row['price']%> </a>
+          <%= row['price']%>
           <%= row['description']%>
           <img class = "food-image" src='<%=row['pictures'] %>'>
           <%= row['likes']%>
