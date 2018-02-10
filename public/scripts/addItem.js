@@ -22,6 +22,15 @@ $(document).ready(function() {
       'class': 'order-price'
     });
 
+    //hidden input to post to db
+    const input = $('<input/>', {
+      'type':'hidden',
+      'name': 'order-food',
+      'value': name
+    })
+
+
+
     //button for removing item from table
     const cancel = $('<button/>', {
       'class': 'cancel-item',
@@ -41,6 +50,7 @@ $(document).ready(function() {
     $(itemPrice).append(document.createTextNode(price));
     $(row).append(itemPrice);
     $(row).append(cancel);
+    $(row).append(input)
     $('.order-list').append(row);
   });
 });
