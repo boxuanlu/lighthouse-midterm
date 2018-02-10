@@ -11,9 +11,18 @@
     <label>password<input id="password" type="password" name="password" ></label>
     <input type="submit" value="login">
   </form> -->
-
+<% if (errors.length) { %>
+  <% for (const error of errors) { %>
+    <p>Error: <%= error %></p>
+  <% } %>
+<% } %>
+<% if (loggedIn) { %>
+  <p>Logged-in as : <%= userEmail%></p>
+  <form method="post" action="/userlogout">
+    <button>Sign Out</button>
+  </form>
+<% } else { %>
   <form class="form-inline" method = 'POST' action = "/userlogin" >
-   <p>Logged in as : </p>
 <div class="form-group mx-sm-3 mb-2">
 
     <label for="inputEmail1" class="sr-only">Email</label>
@@ -25,5 +34,5 @@
   </div>
   <button type="submit" class="btn btn-primary mb-2">Login</button>
 </form>
-
+<% } %>
 </nav>
