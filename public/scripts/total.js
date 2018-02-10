@@ -32,7 +32,7 @@ function subtractToTotal(price) {
   const totalTd = $('.order-total');
   const oldTotal = typeHelper(totalTd.text());
   const add = typeHelper(price);
-  const newTotal = (oldTotal - add) / 100;
+  const newTotal = ((oldTotal - add) / 100).toFixed(2);
   return '$' + newTotal;
 }
 
