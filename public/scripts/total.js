@@ -4,6 +4,8 @@ function typeHelper(text) {
 
 function addToTotal(price) {
   const totalTd = $('.order-total');
+  const totalTdForm = $(totalTd).siblings(input);
+  console.log(totalTdForm)
   const oldTotal = typeHelper(totalTd.text());
   const add = typeHelper(price);
   const newTotal = (oldTotal + add) / 100;
