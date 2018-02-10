@@ -15,6 +15,7 @@ const knexConfig  = require("./knexfile");
 const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
+const twilio = require('twilio');
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
@@ -138,3 +139,14 @@ app.get("/restaurantLogin",(req,res)=>{
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
+
+
+// receive and reply to inbound sms message
+app.post('/sms', function(req, res) {
+  var twilio = require('twilio');
+  var twiml = new twilio.TwimlResponse();
+  twiml.message('The Robots are coming! Head for the hills!');
+  res.writeHead(200, {'Content-Type': 'text/xml'});
+  res.end(twiml.toString());
+});
+
