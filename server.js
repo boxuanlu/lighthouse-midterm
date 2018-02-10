@@ -37,13 +37,23 @@ app.use("/styles", sass({
 }));
 app.use(express.static("public"));
 
+app.use(cookieSession({
+  secret: process.env.SESSION_SECRET || 'development'
+}));
+app.use(flash())
+
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
   knex.select('*').from('items').then(function(rows) {
-    let templateVars = {};
+    let templateVars = {
+      userEmail: req.session.user_id,
+      errors: req.flash('error'),
+      loggedIn: !!req.session.user_id
+    };
+    console.log(templateVars.loggedIn);
     rows.forEach((row) => {
       console.log(Object.keys(templateVars))
       if (!Object.keys(templateVars).includes(row['menu_section'])) {
@@ -64,20 +74,42 @@ app.get("/", (req, res) => {
   })
 });
 
+
+
+
 app.post("/userlogin",(req,res)=>{
+  let loggedIn = false ;
+  //console.log(req.body);
   let userEmail = req.body.email;
   let userPassword = req.body.password;
-  console.log(userEmail);
-  console.log(userPassword);
+
   knex.select('username', 'password', 'email')
   .from('users')
   .where ({'email':userEmail ,'password':userPassword})
   .then(function(userData){
-    userData.forEach((user)=>{
-      console.log('Logged in');
+    if(userData.length){
+      loggedIn = true ;
+      req.session.user_id = userEmail;
+       console.log(req.session.user_id);
+       let templateVars = {
+        userEmail: req.session.user_id
+       }
+       res.redirect('/');
+       return;
+     }else{
+      req.flash('error', 'Wrong Email or password');
+      res.redirect('/');
+      }
     });
   });
-});
+
+
+
+app.post('/userlogout', (req, res) => {
+    req.session = null;
+    res.redirect('/');
+    return;
+  });
 
 
 // ------------- Restaurant Login GET / POST
@@ -87,20 +119,6 @@ app.get("/restaurantLogin",(req,res)=>{
 });
 
 
-
-app.post("/restaurantlogin",(req,res)=>{
-  let restaurantEmail = req.body.email;
-  let restaurantPassword = req.body.password;
-  console.log(userPassword);
-  knex.select('username', 'password', 'email')
-  .from('restaurants')
-  .where ({'email':restaurantEmail ,'password':restaurantPassword})
-  .then(function(userData){
-    userData.forEach((user)=>{
-      console.log('Logged in');
-    });
-  });
-});
 
 
 // ----------------Checkout -----------------//
