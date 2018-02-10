@@ -2,6 +2,10 @@ body {
   background-color: #EEE;
 }
 
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 body h1 {
   color: #244751;
 }
@@ -70,3 +74,8 @@ body h1 {
   }
 }
 
+#menu {
+  height: 800px;
+  overflow: scroll;
+
+}

@@ -1,45 +1,42 @@
 
-<aside class='col checkout'>
+<aside class=' checkout col-6 col-md-4'>
 
   <form role="form" id="payment-form" method="POST" action="javascript:void(0);">
-<section>
+    <section>
 
-  <div>
+        <table>
+          <tr>
+            <th>Food & Beverage Subtotal</th>
+            <td class='order-subtotal'>$0.00</td>
+          </tr>
+          <tr>
+            <th>Taxes</th>
+            <td class='order-taxes'>$0.00</td>
+          </tr>
+          <tr>
+            <th>Total</th>
+            <td class='order-total'>$0.00</td>
+          </tr>
+        </table>
 
-   <table>
-    <tr>
-      <th>Food & Beverage Subtotal</th>
-      <td class='order-subtotal'>$0.00</td>
-    </tr>
-    <tr>
-      <th>Taxes</th>
-      <td class='order-taxes'>$0.00</td>
-    </tr>
-    <tr>
-      <th>Total</th>
-      <td class='order-total'>$0.00</td>
-    </tr>
-   </table>
-  </div>
-</section>
-<section>
-<button type='button' class='checkout-button'>Checkout</button>
-  <div>
-    <table class='order-list'>
-      <tr>
+    </section>
 
-        <th>Order Item Name</th>
-        <th>Item Price</th>
-        <th>Cancel</th>
+    <section>
+      <button type='button' class='checkout-button'>Checkout</button>
+      <div>
+        <table class='order-list'>
+          <tr>
+          <th>Order Item Name</th>
+          <th>Item Price</th>
+          <th>Cancel</th>
+          </tr>
+        </table>
+      </div>
+    </section>
 
-      </tr>
-    </table>
-</div>
-</section>
-<%- include("checkout.ejs")%>
-</form>
-</div>
+    <%- include("checkout.ejs")%>
 
+  </form>
 </aside>
 
 
