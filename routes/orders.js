@@ -3,7 +3,7 @@
 const express = require('express');
 const router  = express.Router();
 
-module.exports = () => {
+module.exports = (knex) => {
 
   router.post('/', (req, res) => {
     console.log(req.body);
