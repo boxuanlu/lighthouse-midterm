@@ -1,7 +1,7 @@
 // instantiates cc inputs
 function ccFormInputs() {
-  const holder = $('<p/>', {
-    'class': 'cc-holder'
+  const holder = $('<div/>', {
+    'class': 'cc-holder mx-sm-3 mb-2'
   });
   const cc = $("<label for='cc'>CC</label><input type='text' id='cc'>");
   const name = $("<label for='cc-name'>name</label><input type='text' id='cc-name'>");
