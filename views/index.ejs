@@ -17,6 +17,12 @@
     <script type="text/javascript" src="/scripts/addItem.js"></script>
     <script src="https://use.fontawesome.com/a4cd4ea4f7.js"></script>
 
+    <!-- styles for payment sheet -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.2.3/jquery.payment.min.js"></script>
+
+
   </head>
 
   <body>
@@ -28,7 +34,6 @@
     <!-- <%- // include("partials/main.ejs") %> -->
     <section class='select-items row'>
     <%- include("partials/main.ejs", {salads: salads, Wraps: Wraps, Soups: Soups}) %>
-    <%- include("partials/checkout.ejs") %>
     <%- include("partials/aside.ejs", {salads: salads, Wraps: Wraps, Soups: Soups}) %>
     </section>
 

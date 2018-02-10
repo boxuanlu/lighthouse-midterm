@@ -1,5 +1,5 @@
 <aside class='col checkout'>
-  <form method='POST' action='/submit-order' id='submit-order'>
+  <form role="form" id="payment-form" method="POST" action="javascript:void(0);">
 <section>
   <ul class="list-group">
   <li class="list-group-item">Cras justo odio</li>
@@ -39,6 +39,7 @@
     </table>
 </div>
 </section>
+<%- include("checkout.ejs") %>
 </form>
 </aside>
 
