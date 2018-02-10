@@ -14,8 +14,12 @@ module.exports = (knex) => {
         let orderId = id[0];
         return knex.select('id').from('items').where('name', req.body['order-food']).then(function (foodId) {
           let itemId = foodId[0].id
+          return knex('order-items').insert({items_id: itemId, orders_id: orderId, quantity: '1'}).then(function(linkres) {
+               res.redirect('/')
+          })
 
-            res.redirect('/')
+
+
         })      })
 
 
