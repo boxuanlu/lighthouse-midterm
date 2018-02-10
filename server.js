@@ -37,6 +37,11 @@ app.use("/styles", sass({
 }));
 app.use(express.static("public"));
 
+app.use(cookieSession({
+  secret: process.env.SESSION_SECRET || 'development'
+}));
+app.use(flash())
+
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
 
@@ -64,20 +69,29 @@ app.get("/", (req, res) => {
   })
 });
 
+
 app.post("/userlogin",(req,res)=>{
+  console.log(req.session);
+  //let user = req.session.user;
+  //console.log(user);
   let userEmail = req.body.email;
   let userPassword = req.body.password;
   console.log(userEmail);
   console.log(userPassword);
-  knex.select('username', 'password', 'email')
-  .from('users')
-  .where ({'email':userEmail ,'password':userPassword})
-  .then(function(userData){
-    userData.forEach((user)=>{
-      console.log('Logged in');
-    });
+
+   // const templateVars = {
+   //  urls: urlDatabase,
+   //  user_id: req.session.user_id,
+   // };
+  // knex.select('username', 'password', 'email')
+  // .from('users')
+  // .where ({'email':userEmail ,'password':userPassword})
+  // .then(function(userData){
+  //   userData.forEach((user)=>{
+  //     console.log('Logged in');
+  //   });
+  // });
   });
-});
 
 
 // ------------- Restaurant Login GET / POST
@@ -88,19 +102,18 @@ app.get("/restaurantLogin",(req,res)=>{
 
 
 
-app.post("/restaurantlogin",(req,res)=>{
-  let restaurantEmail = req.body.email;
-  let restaurantPassword = req.body.password;
-  console.log(userPassword);
-  knex.select('username', 'password', 'email')
-  .from('restaurants')
-  .where ({'email':restaurantEmail ,'password':restaurantPassword})
-  .then(function(userData){
-    userData.forEach((user)=>{
-      console.log('Logged in');
-    });
-  });
-});
+// app.post("/restaurantlogin",(req,res)=>{
+//   let restaurantEmail = req.body.email;
+//   let restaurantPassword = req.body.password;
+//   console.log(restaurantPassword);
+//   knex.select('username', 'password', 'email')
+//   .from('restaurants')
+//   .where ({'email':restaurantEmail ,'password':restaurantPassword})
+//   .then(function(restaurantData){
+//     userData.forEach((restaurant)=>{
+//       console.log('Logged in');
+//     });
+// });
 
 
 // ----------------Checkout -----------------//
