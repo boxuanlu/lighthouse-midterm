@@ -51,7 +51,7 @@ app.use(flash())
 
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
-app.use("/orders", ordersRoutes(knex));
+app.use("/", ordersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
@@ -140,6 +140,9 @@ app.post('/sms', (req, res) => {
                 );
 
 });
+// app.post("/",(req, res)=>{
+//   res.redirect("/");
+// });
 
 
 

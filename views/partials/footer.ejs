@@ -8,8 +8,17 @@
 
 
 
-<button type="button" class="btn btn-danger">Back to login</button>
+<button type="button" class="btn btn-danger mybutton">Back to login</button>
 
 </ul>
 </nav>
 </footer>
+<script type="text/javascript">
+  $(".mybutton").click(function () {
+   //1 second of animation time
+   //html works for FFX but not Chrome
+   //body works for Chrome but not FFX
+   //This strange selector seems to work universally
+   $("html, body").animate({scrollTop: 0}, 100);
+});
+</script>
