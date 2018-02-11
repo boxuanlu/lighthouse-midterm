@@ -28,10 +28,14 @@ module.exports = (knex) => {
         let orderId = id[0];
 
         return knex.select('id').from('items').whereIn('name', req.body['order-food']).then(function (foodId) {
-          console.log(foodId)
+          //console.log(foodId)
           let itemIds = [];
           foodId.forEach((id) => {
-            itemIds.push(Object.values(id).toString())
+            for (let key in id) {
+              itemIds.push(id[key])
+
+            }
+            // itemIds.push(Object.values(id).toString())
           })
 
           console.log(2, itemIds)
