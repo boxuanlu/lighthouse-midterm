@@ -127,11 +127,12 @@ app.get("/restaurantLogin",(req,res)=>{
 });
 
 app.post('/sms', (req, res) => {
+  console.log(req.body.Body);
   client.messages.create(
                   {
                     to: '+15878931658', //+15878931658
                     from: '+15878065799',
-                    body: 'Order Confirmed: your Requests',
+                    body: `Order Confirmed: your order will be reaady in ${req.body.Body} Requests`,
                   },
                   (err, message) => {
                     console.log(message.sid)
@@ -140,18 +141,6 @@ app.post('/sms', (req, res) => {
 
 });
 
-app.get('/sms/confirmation', (req, res) => {
-  client.messages.create(
-                  {
-                    to: '+15878931658', //+15878931658
-                    from: '+15878076790',
-                    body: `Order Confirmed: Ravi Requests ${req.body['order-food']}` ,
-                  },
-                  (err, message) => {
-                    console.log(message.sid)
-                  }
-                );
-})
 
 
 // ----------------Checkout -----------------//
