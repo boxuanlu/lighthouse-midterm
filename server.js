@@ -6,7 +6,7 @@ require('dotenv').config();
 //twilio test
  const ngrok = require('ngrok');
 //twilio test
-const PORT        = process.env.PORT || 8080;
+const PORT        = process.env.PORT || 1337;
 const ENV         = process.env.ENV || "development";
 const express     = require("express");
 const bodyParser  = require("body-parser");
@@ -19,7 +19,7 @@ const knexConfig  = require("./knexfile");
 const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
-const twilio = require('twilio');
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
@@ -125,6 +125,15 @@ app.get("/restaurantLogin",(req,res)=>{
 });
 
 
+app.post('/sms', (req, res) => {
+  const twiml = new MessagingResponse();
+
+  twiml.message('The Robots are coming! Head for the hills!');
+
+  res.writeHead(200, {'Content-Type': 'text/xml'});
+  res.end(twiml.toString());
+
+});
 
 
 // ----------------Checkout -----------------//
@@ -146,15 +155,8 @@ app.listen(PORT, () => {
 });
 
 
-// receive and reply to inbound sms message
-app.post('/sms', function(req, res) {
-  var twilio = require('twilio');
-  var twiml = new twilio.TwimlResponse();
-  twiml.message('The Robots are coming! Head for the hills!');
-  res.writeHead(200, {'Content-Type': 'text/xml'});
-  res.end(twiml.toString());
-});
- http.createServer(app).listen(1337, function () {
-   console.log("Express server listening on port 1337");
- });
+
+ // http.createServer(app).listen(1337, function () {
+ //   console.log("Express server listening on port 1337");
+ // });
 
