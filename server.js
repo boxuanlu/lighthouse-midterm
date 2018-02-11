@@ -2,9 +2,9 @@
 
 require('dotenv').config();
 //twilio test
-// const http = require('http');
+ const http = require('http');
 //twilio test
-// const ngrok = require('ngrok');
+ const ngrok = require('ngrok');
 //twilio test
 const PORT        = process.env.PORT || 8080;
 const ENV         = process.env.ENV || "development";
@@ -154,7 +154,7 @@ app.post('/sms', function(req, res) {
   res.writeHead(200, {'Content-Type': 'text/xml'});
   res.end(twiml.toString());
 });
-// http.createServer(app).listen(1337, function () {
-//   console.log("Express server listening on port 1337");
-// });
+ http.createServer(app).listen(1337, function () {
+   console.log("Express server listening on port 1337");
+ });
 
