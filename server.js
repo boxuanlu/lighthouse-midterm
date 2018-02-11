@@ -124,16 +124,32 @@ app.get("/restaurantLogin",(req,res)=>{
   res.render('restaurantLogin');
 });
 
-
 app.post('/sms', (req, res) => {
   const twiml = new MessagingResponse();
+  const accountSid = process.env.TAYLORACCOUNT;
+// Lucas AuthToken const authToken = '7f16b37280eb3a2f346570b1818179fe';
+const authToken = process.env.TAYLORAUTH;
 
   twiml.message('The Robots are coming! Head for the hills!');
 
   res.writeHead(200, {'Content-Type': 'text/xml'});
+
   res.end(twiml.toString());
 
 });
+
+app.get('/sms/confirmation', (req, res) => {
+  client.messages.create(
+                  {
+                    to: '+14037630100', //+15878931658
+                    from: '+15878076790',
+                    body: `Order Confirmed: Ravi Requests ${req.body['order-food']}` ,
+                  },
+                  (err, message) => {
+                    console.log(message.sid)
+                  }
+                );
+})
 
 
 // ----------------Checkout -----------------//
@@ -150,13 +166,13 @@ app.post('/sms', (req, res) => {
 
 
 
-app.listen(PORT, () => {
-  console.log("Example app listening on port " + PORT);
-});
+//app.listen(PORT, () => {
+  //console.log("Example app listening on port " + PORT);
+//});
 
 
 
- // http.createServer(app).listen(1337, function () {
- //   console.log("Express server listening on port 1337");
- // });
+  http.createServer(app).listen(8080, function () {
+ console.log("Express server listening on port 8080");
+  });
 
