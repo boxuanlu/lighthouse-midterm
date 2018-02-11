@@ -20,7 +20,9 @@ const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
-
+const authToken = process.env.LUCASAUTH;
+const accountSid = process.env.LUCASACCOUNT;
+const client = require('twilio')(accountSid, authToken);
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
 const ordersRoutes = require("./routes/orders");
@@ -125,23 +127,23 @@ app.get("/restaurantLogin",(req,res)=>{
 });
 
 app.post('/sms', (req, res) => {
-  const twiml = new MessagingResponse();
-  const accountSid = process.env.TAYLORACCOUNT;
-// Lucas AuthToken const authToken = '7f16b37280eb3a2f346570b1818179fe';
-const authToken = process.env.TAYLORAUTH;
-
-  twiml.message('The Robots are coming! Head for the hills!');
-
-  res.writeHead(200, {'Content-Type': 'text/xml'});
-
-  res.end(twiml.toString());
+  client.messages.create(
+                  {
+                    to: '+15878931658', //+15878931658
+                    from: '+15878065799',
+                    body: 'Order Confirmed: your Requests',
+                  },
+                  (err, message) => {
+                    console.log(message.sid)
+                  }
+                );
 
 });
 
 app.get('/sms/confirmation', (req, res) => {
   client.messages.create(
                   {
-                    to: '+14037630100', //+15878931658
+                    to: '+15878931658', //+15878931658
                     from: '+15878076790',
                     body: `Order Confirmed: Ravi Requests ${req.body['order-food']}` ,
                   },
