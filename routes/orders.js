@@ -38,8 +38,15 @@ module.exports = (knex) => {
           let whereObj = genInsertObj(itemIds, orderId)
           console.log(whereObj)
           return knex('order-items').insert(whereObj).then(function(linkres) {
+              console.log('here?')
+              console.log(itemIds);
+                return knex('items').whereIn('id', itemIds).update({
+                  'likes': knex.raw('likes + 1')
+                }).then(function (foodItems) {
+                  console.log(foodItems)
+                  res.redirect('/')
+                })
 
-               res.redirect('/')
           })
 
 
