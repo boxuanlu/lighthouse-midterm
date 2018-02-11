@@ -7,6 +7,7 @@ exports.up = function(knex, Promise) {
       table.decimal('subtotal', 14, 2);
       table.decimal('tax', 14, 2);
       table.decimal('total', 14, 2);
+      table.integer('phone');
       table.string('comment');
     })
   ]);
