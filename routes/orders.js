@@ -2,12 +2,12 @@
 
 const express = require('express');
 const router  = express.Router();
-// lucas accountSid const accountSid = 'AC5db75ea4f47e12722710da200f48208e';
+
 const accountSid = process.env.TAYLORACCOUNT;
-// Lucas AuthToken const authToken = '7f16b37280eb3a2f346570b1818179fe';
+
 const authToken = process.env.TAYLORAUTH;
 const client = require('twilio')(accountSid, authToken);
-
+router.use(flash())
 function genInsertObj(ids, orderId) {
   let output = [];
   ids.forEach((id) => {
@@ -69,6 +69,7 @@ module.exports = (knex) => {
                     body: `Order's in! Ravi Requests ${req.body['order-food']}` ,
                   },
                   (err, message) => {
+                    req.flash('info', 'order is submitted')
                     res.redirect('/')
                   }
                 );
