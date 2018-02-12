@@ -7,7 +7,6 @@ const accountSid = process.env.TAYLORACCOUNT;
 
 const authToken = process.env.TAYLORAUTH;
 const client = require('twilio')(accountSid, authToken);
-router.use(flash())
 function genInsertObj(ids, orderId) {
   let output = [];
   ids.forEach((id) => {
@@ -66,10 +65,9 @@ module.exports = (knex) => {
                   {
                     to: '+14037630100', //+15878931658
                     from: '+15878076790',
-                    body: `Order's in! Ravi Requests ${req.body['order-food']}` ,
+                    body: `Order's in! Lucas Requests ${req.body['order-food']}` ,
                   },
                   (err, message) => {
-                    req.flash('info', 'order is submitted')
                     res.redirect('/')
                   }
                 );
